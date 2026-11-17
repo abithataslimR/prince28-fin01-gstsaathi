@@ -52,4 +52,3 @@ Then open http://localhost:8000/docs
 uv run pytest
 uv run ruff check .
 ```
-
