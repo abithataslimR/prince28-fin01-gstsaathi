@@ -1,0 +1,53 @@
+
+[
+  {
+    "id": "001",
+    "doc_type": "Central Tax Rate Notification",
+    "number": "9/2025-Central Tax (Rate)",
+    "date": "2025-09-17",
+    "hsn_code": "8406",
+    "rate": 18,
+    "subject": "Steam turbines and other vapour turbines",
+    "effective_from": "2025-09-22"
+  },
+  {
+    "id": "002",
+    "doc_type": "Central Tax Rate Notification",
+    "number": "9/2025-Central Tax (Rate)",
+    "date": "2025-09-17",
+    "hsn_code": "8410",
+    "rate": 18,
+    "subject": "Hydraulic turbines and water wheels",
+    "effective_from": "2025-09-22"
+  },
+  {
+    "id": "003",
+    "doc_type": "Central Tax Rate Notification",
+    "number": "9/2025-Central Tax (Rate)",
+    "date": "2025-09-17",
+    "hsn_code": "8411",
+    "rate": 18,
+    "subject": "Turbo-jets, turbo-propellers and other gas turbines (other than aircraft engines)",
+    "effective_from": "2025-09-22"
+  },
+  {
+    "id": "004",
+    "doc_type": "Central Tax Rate Notification",
+    "number": "9/2025-Central Tax (Rate)",
+    "date": "2025-09-17",
+    "hsn_code": "8412",
+    "rate": 18,
+    "subject": "Other engines and motors",
+    "effective_from": "2025-09-22"
+  },
+  {
+    "id": "005",
+    "doc_type": "Central Tax Rate Notification",
+    "number": "9/2025-Central Tax (Rate)",
+    "date": "2025-09-17",
+    "hsn_code": "8413",
+    "rate": 18,
+    "subject": "Specified power-driven water pumps, including centrifugal pumps",
+    "effective_from": "2025-09-22"
+  }
+]
