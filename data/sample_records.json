@@ -1,4 +1,3 @@
-
 [
   {
     "id": "001",
@@ -8,7 +7,8 @@
     "hsn_code": "8406",
     "rate": 18,
     "subject": "Steam turbines and other vapour turbines",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "002",
@@ -18,7 +18,8 @@
     "hsn_code": "8410",
     "rate": 18,
     "subject": "Hydraulic turbines and water wheels",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "003",
@@ -28,7 +29,8 @@
     "hsn_code": "8411",
     "rate": 18,
     "subject": "Turbo-jets, turbo-propellers and other gas turbines",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "004",
@@ -38,7 +40,8 @@
     "hsn_code": "8412",
     "rate": 18,
     "subject": "Other engines and motors",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "005",
@@ -48,7 +51,8 @@
     "hsn_code": "8413",
     "rate": 18,
     "subject": "Specified power-driven water pumps",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "006",
@@ -58,7 +62,8 @@
     "hsn_code": "8501",
     "rate": 18,
     "subject": "Electric motors and generators",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "007",
@@ -68,7 +73,8 @@
     "hsn_code": "8504",
     "rate": 18,
     "subject": "Electrical transformers and static converters",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "008",
@@ -78,7 +84,8 @@
     "hsn_code": "8517",
     "rate": 18,
     "subject": "Telephone sets and communication equipment",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "009",
@@ -88,7 +95,8 @@
     "hsn_code": "8471",
     "rate": 18,
     "subject": "Automatic data processing machines",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "010",
@@ -98,7 +106,8 @@
     "hsn_code": "9403",
     "rate": 18,
     "subject": "Other furniture and parts",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "011",
@@ -108,7 +117,8 @@
     "hsn_code": "6109",
     "rate": 5,
     "subject": "T-shirts and other knitted garments",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "012",
@@ -118,7 +128,8 @@
     "hsn_code": "1006",
     "rate": 0,
     "subject": "Rice",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "013",
@@ -128,7 +139,8 @@
     "hsn_code": "1701",
     "rate": 5,
     "subject": "Cane or beet sugar",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "014",
@@ -138,7 +150,8 @@
     "hsn_code": "3004",
     "rate": 5,
     "subject": "Medicaments in measured doses",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "015",
@@ -148,7 +161,8 @@
     "hsn_code": "2202",
     "rate": 40,
     "subject": "Sweetened or flavoured beverages",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "016",
@@ -158,7 +172,8 @@
     "hsn_code": "0901",
     "rate": 5,
     "subject": "Coffee and coffee substitutes",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "017",
@@ -168,7 +183,8 @@
     "hsn_code": "3304",
     "rate": 18,
     "subject": "Beauty and skincare preparations",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "018",
@@ -178,7 +194,8 @@
     "hsn_code": "3923",
     "rate": 18,
     "subject": "Plastic packaging containers",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "019",
@@ -188,7 +205,8 @@
     "hsn_code": "7308",
     "rate": 18,
     "subject": "Structures and parts of structures of iron or steel",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   },
   {
     "id": "020",
@@ -198,6 +216,7 @@
     "hsn_code": "8703",
     "rate": 18,
     "subject": "Motor cars and other motor vehicles",
-    "effective_from": "2025-09-22"
+    "effective_from": "2025-09-22",
+    "source_url": "https://taxinformation.cbic.gov.in/view-pdf/1010641/ENG/Notifications"
   }
 ]
