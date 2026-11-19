@@ -67,3 +67,54 @@ The table contains only 20 rows, so scanning all rows is cheaper than using an i
 When would it switch to the GIN index?
 
 When the table becomes larger and the planner estimates that using the GIN index is cheaper.
+
+## D04 · Docker, Compose and tests
+
+### The image
+
+```text
+docker images gstsaathi:dev
+
+IMAGE           ID             DISK USAGE   CONTENT SIZE
+gstsaathi:dev   c7f529ca1492        300MB           70MB
+
+docker run --rm gstsaathi:dev id
+
+uid=999(app) gid=999(app) groups=999(app)
+
+```
+
+### The stack
+
+```text
+docker compose ps -a
+
+gstsaathi-api-1       Up (healthy)
+gstsaathi-db-1        Up (healthy)
+gstsaathi-migrate-1   Exited (0)
+gstsaathi-redis-1     Up (healthy)
+
+```
+
+Migration and loader output:
+
+records=20 inserted=0 updated=0 unchanged=20
+
+db stopped: /health → status: ok
+
+db stopped: /ready → not_ready, database: false
+
+db started: /ready → ready, database: true
+
+A load balancer should stop sending traffic when the API is not ready,
+but it should not restart the application because the API process is
+still alive. Once the database recovers, the API becomes ready again.
+
+### Tests and coverage
+
+```text
+uv run poe test             → 16 passed
+uv run poe test-integration → 7 passed
+coverage TOTAL, unit only   → 73%
+coverage TOTAL, with integration tests → 81%
+```
