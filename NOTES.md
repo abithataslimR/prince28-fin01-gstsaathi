@@ -118,3 +118,41 @@ uv run poe test-integration → 7 passed
 coverage TOTAL, unit only   → 73%
 coverage TOTAL, with integration tests → 81%
 ```
+
+## D05 · CI/CD and production
+
+### Deployment
+
+- Application: https://gstsaathi.onrender.com
+- Health endpoint: https://gstsaathi.onrender.com/health
+- API documentation: https://gstsaathi.onrender.com/docs
+- CI workflow: GitHub Actions
+- CD workflow: GitHub Actions
+- Production hosting: Render
+- Database: Neon PostgreSQL
+
+### Rollback drill
+
+Manual rollback was triggered through GitHub Actions → CD → Run workflow.
+
+- Previous successful deployment SHA:
+  `b2d48a0e6a6c6f72cb82a390143954a3e5afa46a`
+- Rollback result: Success
+- Smoke test: Passed
+- Database migrations: Skipped during manual rollback.
+
+### Roll-forward drill
+
+The latest version was restored through GitHub Actions → CD → Run workflow.
+
+- Latest deployment SHA:
+  `85e6f366cffef34bb5ada25bdacb07f8bfab5f19`
+- Roll-forward result: Success
+- Smoke test: Passed
+
+### Production monitoring
+
+- Monitor: UptimeRobot
+- Endpoint: https://gstsaathi.onrender.com/health
+- Check interval: 5 minutes
+- Alert notification: Email
