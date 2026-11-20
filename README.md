@@ -1,79 +1,74 @@
 
 # GSTSaathi
 
-Answers GST questions for small manufacturers: rate on a given date, input tax credit, invoice reconciliation, and compliance.
+[![CI](https://github.com/abithataslimR/prince28-fin01-gstsaathi/actions/workflows/ci.yml/badge.svg)](https://github.com/abithataslimR/prince28-fin01-gstsaathi/actions/workflows/ci.yml)
 
-**Status:** Day 1 foundation (FastAPI skeleton, quality gates).
+[![Live](https://img.shields.io/website?url=https%3A%2F%2Fgstsaathi.onrender.com%2Fhealth&label=live)](https://gstsaathi.onrender.com/docs)
+
+[![Uptime (30 days)](https://img.shields.io/uptimerobot/ratio/m804749270-3670f7c8f791ec0b9f724ed5)](https://gstsaathi.onrender.com/health)
+
+**Live:** Week 1 complete · Live at https://gstsaathi.onrender.com
+
+## What is GSTSaathi?
+
+GSTSaathi helps small manufacturers answer GST-related questions, find GST rates by HSN code and date, understand Input Tax Credit (ITC), reconcile invoices, and manage compliance.
 
 ## Who it's for
 
-Accountant at a 40-employee pump-set manufacturer in Coimbatore who files GSTR-1 and GSTR-3B monthly and handles e-invoices.
+An accountant working at a 40-employee pump-set manufacturing company in Coimbatore who needs reliable GST information for everyday business operations.
 
 ## The problem
 
-GST rules are available across many government documents, such as Acts, Rules, notifications, circulars, and FAQs. Finding the correct information takes time, especially when GST rates change over time. Accountants need to know which rate was applicable to a particular HSN code on a particular date. GSTSaathi aims to make this information easier to find using official government sources.
+Finding the correct historical GST rate for a product based on its HSN code and the applicable date can be difficult. Incorrect rates can lead to billing mistakes and compliance issues.
 
 ## Data sources
 
-CBIC GST Acts and Rules, central tax and rate notifications, circulars, FAQs, and GST Council decisions.
+- [CBIC](https://cbic-gst.gov.in/)
+- [GST Council](https://gstcouncil.gov.in/)
+- [GST Portal](https://www.gst.gov.in/)
 
-- https://cbic-gst.gov.in/
-- https://gstcouncil.gov.in/
-- https://www.gst.gov.in/
-- Terms: Public government documents. Cite notification number and date.
+## Hardest problem
 
-## Hardest problem (my interview story)
-
-Time-bound rates: the same HSN code has different rates on different dates. Answers must use the rate applicable on the requested date, not just the latest rate.
+GST rates can change over time. The application must identify the correct rate based on the HSN code and the date of the transaction.
 
 ## Signature feature
 
-HSN rate timeline: enter an HSN code and see its rate history with notification references and effective dates.
+**HSN Rate Timeline:** Shows GST rate changes over time so users can identify the applicable rate for a particular date.
 
 ## Target metric
 
-Rate-on-date correctness of 95%+ on 50 HSN-date tests.
+Achieve 95% or higher accuracy on a test set of 50 HSN-code and date combinations.
 
-## Run it locally
+## Run locally
+
+Clone the repository:
 
 ```bash
-uv sync
-cp .env.example .env
-uv run uvicorn gstsaathi.api.main:create_app --factory --reload
+git clone https://github.com/abithataslimR/prince28-fin01-gstsaathi.git
+cd prince28-fin01-gstsaathi
 ```
 
-On Windows, use `copy .env.example .env` instead of `cp`.
-
-Then open http://localhost:8000/docs
+Install dependencies and run the application according to the project setup instructions.
 
 ## Checks
 
-```bash
-uv run pytest
-uv run ruff check .
-```
-## Run locally in one command
+The project uses automated CI checks through GitHub Actions to validate code changes.
 
-You need Docker Desktop running. From a fresh clone:
+## Docker Compose
 
-```bash
-docker compose up --build
-```
+Docker Compose is used to run the application and its supporting services locally.
 
-This starts Postgres (with pgvector), Redis, runs the migrations and loads the sample data once, then starts the API.
+## API documentation
 
-- API docs: http://localhost:8000/docs
-- Liveness: http://localhost:8000/health
-- Readiness (checks the database): http://localhost:8000/ready
+- Swagger UI: https://gstsaathi.onrender.com/docs
+- Health check: https://gstsaathi.onrender.com/health
 
-Stop with `Ctrl+C`, then `docker compose down`. Add `-v` to also delete the database volume.
+## Development and testing
 
-## Develop and test
-
-| Task | Mac / Linux | Windows |
-|---|---|---|
-| Run the API with reload | `make dev` | `uv run poe dev` |
-| Unit tests (no network) | `make test` | `uv run poe test` |
-| Integration tests (needs `docker compose up`) | `make test-integration` | `uv run poe test-integration` |
-| Coverage report | `make cov` | `uv run poe cov` |
-| Lint and format check | `make lint` | `uv run poe lint` |
+| Area | Purpose |
+|---|---|
+| CI | Automatically checks code changes |
+| CD | Deploys the application |
+| Docker | Provides a consistent application environment |
+| Health check | Verifies application availability |
+| Uptime monitoring | Monitors the live application |

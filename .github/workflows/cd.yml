@@ -1,4 +1,3 @@
-
 # CD: after CI passes on main -> migrate Neon -> deploy that exact image -> smoke test.
 # Rollback: Actions -> CD -> Run workflow -> paste an older commit SHA.
 name: CD
