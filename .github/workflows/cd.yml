@@ -31,7 +31,6 @@ jobs:
     env:
       SHA: ${{ github.event.inputs.sha || github.event.workflow_run.head_sha }}
     steps:
-      # Normal deploy: the merged commit. Rollback: today's main.
       - uses: actions/checkout@v7
         with:
           ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
