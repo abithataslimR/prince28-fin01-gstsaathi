@@ -14,13 +14,16 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
     app_name: str = "gstsaathi"
-    # No defaults on purpose: if these are missing, the app refuses to start (fail fast).
+    # No defaults on purpose: if these are missing, the app refuses to start (failfast).
     app_env: Literal["local", "ci", "production"]
     database_url: str
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
     data_file: Path = Path("data/sample_records.json")
     db_pool_size: int = 5
     db_max_overflow: int = 5
+
+    # The commit this image was built from. CI sets it (Dockerfile ARG GIT_SHA).
+    git_sha: str = "dev"
 
     @field_validator("database_url")
     @classmethod
