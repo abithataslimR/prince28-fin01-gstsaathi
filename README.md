@@ -71,4 +71,4 @@ Docker Compose is used to run the application and its supporting services locall
 | CD | Deploys the application |
 | Docker | Provides a consistent application environment |
 | Health check | Verifies application availability |
-| Uptime monitoring | Monitors the live application |
+| Uptime monitoring | Monitors the live application |  
