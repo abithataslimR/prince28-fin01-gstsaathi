@@ -3,11 +3,11 @@
 
 [![CI](https://github.com/abithataslimR/prince28-fin01-gstsaathi/actions/workflows/ci.yml/badge.svg)](https://github.com/abithataslimR/prince28-fin01-gstsaathi/actions/workflows/ci.yml)
 
-[![Live](https://img.shields.io/website?url=https%3A%2F%2Fgstsaathi.onrender.com%2Fhealth&label=live)](https://gstsaathi.onrender.com/docs)
+[![Live](https://img.shields.io/website?url=https%3A%2F%2Fgstsaathi-20ex.onrender.com%2Fhealth&label=live)](https://gstsaathi-20ex.onrender.com/docs)
 
-[![Uptime (30 days)](https://img.shields.io/uptimerobot/ratio/m804749270-3670f7c8f791ec0b9f724ed5)](https://gstsaathi.onrender.com/health)
+[![Uptime (30 days)](https://img.shields.io/uptimerobot/ratio/m804749270-3670f7c8f791ec0b9f724ed5)](https://gstsaathi-20ex.onrender.com/health)
 
-**Live:** Week 1 complete · Live at https://gstsaathi.onrender.com
+**Live:** Week 1 complete · Live at https://gstsaathi-20ex.onrender.com
 
 ## What is GSTSaathi?
 
@@ -60,8 +60,8 @@ Docker Compose is used to run the application and its supporting services locall
 
 ## API documentation
 
-- Swagger UI: https://gstsaathi.onrender.com/docs
-- Health check: https://gstsaathi.onrender.com/health
+- Swagger UI: https://gstsaathi-20ex.onrender.com/docs
+- Health check: https://gstsaathi-20ex.onrender.com/health
 
 ## Development and testing
 
@@ -71,4 +71,4 @@ Docker Compose is used to run the application and its supporting services locall
 | CD | Deploys the application |
 | Docker | Provides a consistent application environment |
 | Health check | Verifies application availability |
-| Uptime monitoring | Monitors the live application |  
+| Uptime monitoring | Monitors the live application |
