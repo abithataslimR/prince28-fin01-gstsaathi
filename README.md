@@ -39,7 +39,7 @@ GST rates can change over time. The application must identify the correct rate b
 
 Achieve 95% or higher accuracy on a test set of 50 HSN-code and date combinations.
 
-## Run locally
+## Run locally in one command
 
 Clone the repository:
 
