@@ -156,3 +156,47 @@ The latest version was restored through GitHub Actions → CD → Run workflow.
 - Endpoint: https://gstsaathi.onrender.com/health
 - Check interval: 5 minutes
 - Alert notification: Email
+
+
+## D06 · Collecting the corpus
+
+- Start target: Rate notifications + 300 circulars
+- Collected today: 14 files, 123 pages, 6.5 MB
+- Doors used: URL list / by hand
+
+### Licence check
+
+| Source | Licence or terms, in my words | May I show full text in answers? |
+|---|---|---|
+| CBIC (4 notifications) | Free reproduction with accurate use and source acknowledgement; third-party content excluded | Yes, subject to the policy conditions |
+| CBIC (original circular) | No explicit reuse licence found; permission unclear | Not confirmed |
+| GST Council | Permission required before reproduction | Not until permission is received |
+
+### robots.txt
+
+- CBIC: The browser-accessible robots.txt does not disallow the public `/view-pdf/` path.
+- GST Council: Public PDFs were not explicitly blocked by the robots rules checked.
+- The Python downloader could not retrieve CBIC robots.txt because of a TLS connection timeout. It failed closed and marked 4 URLs blocked.
+- I used the manual download method instead of bypassing the restriction.
+
+### Kill and resume
+
+- Manual Ctrl+C interruption test: completed using an isolated local test; actual corpus was protected.
+- Run 1: stopped after 2 downloads.
+- Run 2: downloaded=8, skipped=2.
+- Run 3: downloaded=0, skipped=10.
+- No .part files remained.
+
+### Capacity (from docs/CAPACITY.md)
+
+- Tokens per page, measured: 630
+- Full corpus: 5.04 M tokens, 14,492 chunks, embedding about Rs 83, vectors 45 MB.
+- Text in Postgres: 24 MB; estimated combined storage: 69 MB.
+- The number I am least sure about is tokens per page because only 14 PDFs were measured.
+
+### One thing that went wrong today, and how I fixed it
+
+- dataset_report.py was empty. I added the implementation supplied in the PDF and successfully generated both reports.
+- Automated resume test: passed (3 existing files skipped; 5 missing files downloaded in the test).
+- Broken-connection test: passed; no partial file remained.
+- Manual Ctrl+C interruption test was completed using an isolated local test, protecting the actual corpus.
