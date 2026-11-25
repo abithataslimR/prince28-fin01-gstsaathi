@@ -532,6 +532,7 @@ dependencies = [
     { name = "pypdf" },
     { name = "sqlalchemy", extra = ["asyncio"] },
     { name = "trafilatura" },
+    { name = "truststore" },
     { name = "uvicorn", extra = ["standard"] },
 ]
 
@@ -558,6 +559,7 @@ requires-dist = [
     { name = "pypdf", specifier = ">=7.1.1" },
     { name = "sqlalchemy", extras = ["asyncio"], specifier = ">=2.1.9" },
     { name = "trafilatura", specifier = ">=2.4.0" },
+    { name = "truststore", specifier = ">=0.10.5" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.54.0" },
 ]
 
@@ -1598,6 +1600,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/a0/64/882e8fc266228bd2290871ea041f80ec41f348bc605dd1c2989f26cc5407/trafilatura-2.4.0.tar.gz", hash = "sha256:79e7e025fd18c14ffe6899549b61516827a53a06e1d82bdac7127202667a5561", size = 435340, upload-time = "2026-11-23T17:52:03.927Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/42/16/7e6a86c1c05481006591e85248c94285fa0c7665340d824cf503b774cc17/trafilatura-2.4.0-py3-none-any.whl", hash = "sha256:49dec72fb60d8bc0bb393a8b447706b511593fe88cfb1fd10d47e35ea2e2bf77", size = 183984, upload-time = "2026-11-23T17:52:00.82Z" },
+]
+
+[[package]]
+name = "truststore"
+version = "0.10.5"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ee/9f/c5201d42a484c061e528825fc8e2d565f5abd50a4ced6fb7d29c4ec99b2b/truststore-0.10.5.tar.gz", hash = "sha256:30d36967ccaded5cbb38d602c433f53600036c79d502f4533a49b60a03bbefcd", size = 28091, upload-time = "2026-10-12T22:27:31.808Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/51/e9/3a7820be2bb0fe53b6bc9c3be26d3d1158004e4c3ab953aa6840b955b1e9/truststore-0.10.5-py3-none-any.whl", hash = "sha256:9aaaedaefaf06d8b206278cf8b5012bc897f485a874503501e12d776df78951c", size = 19017, upload-time = "2026-10-12T22:27:30.377Z" },
 ]
 
 [[package]]
