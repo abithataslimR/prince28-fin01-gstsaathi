@@ -15,6 +15,7 @@ import hashlib
 import json
 import random
 import re
+import ssl
 import time
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
@@ -24,6 +25,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 import httpx
+import truststore
 from protego import Protego
 
 # Say who you are and where to complain. Site owners see this in their logs.
@@ -216,11 +218,15 @@ class HostGate:
 
 
 def make_client(max_concurrency: int = 4) -> httpx.AsyncClient:
+    """Create an HTTP client using the operating system's trusted certificates."""
+    ssl_context = truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+
     return httpx.AsyncClient(
         headers={"User-Agent": USER_AGENT},
         timeout=httpx.Timeout(30.0, connect=10.0),  # 10 s to connect, 30 s of silence at most
         limits=httpx.Limits(max_connections=max_concurrency),
         follow_redirects=True,
+        verify=ssl_context,
     )
 
 
