@@ -11,7 +11,11 @@ from gstsaathi.db.url import to_asyncpg_url
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
 
     app_name: str = "gstsaathi"
     # No defaults on purpose: if these are missing, the app refuses to start (failfast).
@@ -24,6 +28,17 @@ class Settings(BaseSettings):
 
     # The commit this image was built from. CI sets it (Dockerfile ARG GIT_SHA).
     git_sha: str = "dev"
+
+    # LLM gateway (Day 8)
+    gemini_api_key: str = ""
+    groq_api_key: str = ""
+    llm_primary_model: str = "gemini-4-hydrogen"
+    llm_fallback_model: str = "openai/gpt-oss-20b"
+    llm_primary_base_url: str = "https://generativelanguage.googleapis.com/v1beta/openai"
+    llm_fallback_base_url: str = "https://api.groq.com/openai/v1"
+    llm_timeout_seconds: float = 30.0
+    usd_inr: float = 95.0
+    prompts_dir: Path = Path("prompts")
 
     @field_validator("database_url")
     @classmethod
