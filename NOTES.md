@@ -53,6 +53,14 @@ $ uv run poe test
 - The manifest was used to track document information.
 - Sources used: URL list / manual collection.
 
+
+### Kill and resume
+
+- Run 1: Ctrl+C result was not recorded.
+- Run 2: Downloaded and skipped counts were not recorded.
+- Run 3: Downloaded and skipped counts were not recorded.
+- Test counts were not recorded; existing corpus was preserved.
+
 ## D07 · Document Parsing
 
 ### Setup
