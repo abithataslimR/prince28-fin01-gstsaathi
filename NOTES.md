@@ -332,3 +332,149 @@ Inspected three original PDFs alongside the parser comparison results.
 - Tables: No tables present.
 - Headings: Clearly visible.
 - Headers/footers: Present.
+
+## D09 · Prompts and Structured Output
+
+### Router prompt versions compared
+
+| Prompt version | Correct | Accuracy | Invalid replies | Avg tokens in |
+|---|---:|---:|---:|---:|
+| classify_v1 | 12/20 | 60% | 1 | 107 |
+| classify_v2 | 18/20 | 90% | 1 | 272 |
+| classify_v3 | 18/20 | 90% | 0 | 390 |
+| classify_v4 | 20/20 | 100% | 0 | 392 |
+
+- My best router prompt: `classify_v4` with 20/20.
+- What I changed in v4, and what happened to the score: Clarified the boundaries between `docs`, `personal` and `off_topic`. Accuracy improved from 18/20 to 20/20 compared with v3.
+- The question my best version still gets wrong: None in the 20-question test set.
+- A label in my test set that I changed after seeing the results: None.
+- Input tokens per question: v1 107, best version 392.
+- The best version achieved 100% accuracy on the 20-question test set, with a higher input-token count than v1. The extra accuracy is worth the additional tokens for this test set.
+
+### My contract (DocMeta)
+
+Common fields:
+
+- `doc_kind`
+- `year`
+- `language`
+- `summary`
+- `topics`
+
+Project-specific fields kept:
+
+- `number`
+- `date`
+- `hsn_code`
+- `rate`
+- `subject`
+- `effective_from`
+
+Contract details:
+
+- Fields I kept from my project card: `number`, `date`, `hsn_code`, `rate`, `subject`, `effective_from`.
+- Fields I deleted, and why they make no sense per document: No project-specific fields were deleted.
+- The field I tightened, and how: `doc_kind` was restricted using `Literal` to ten allowed document kinds.
+- The `year` field is optional and restricted to the range 1950–2027.
+- The `language` field is restricted to `en`, `ta`, `hi`, or `other`.
+- The `summary` field must contain between 20 and 300 characters.
+- The `topics` field requires 1–6 values, with duplicates removed and values converted to lowercase.
+- Unknown fields are rejected using Pydantic's `extra="forbid"`.
+
+### Extraction run
+
+- Prompt version: `extract_v1`.
+- Documents: 14 successfully extracted, 5 repaired, 0 failed (of 14 parsed PDFs).
+- Not finished? Why, and how many are left: All 14 content-bearing PDFs were processed. None remain among the 14 parsed PDFs. Five notification entries had no parsed page content and were excluded after correcting the pending-document selection.
+- Most common failure reason, and what I did about it: Pydantic validation errors involving summary length, invalid `doc_kind` values and subject length. The extraction retry mechanism repaired the responses.
+- A record that was valid but wrong (document, field, what it said, what is true): No confirmed valid-but-wrong record was identified during the checks performed.
+- Cost at list price: Approximately Rs 0.8747 in total for the 14 parsed PDFs, approximately Rs 0.0625 per document.
+
+### Corpus coverage
+
+The database contains 34 document rows:
+
+| Document type | Total documents | Documents with content | Rows with extraction metadata |
+|---|---:|---:|---:|
+| Central Tax Rate Notification | 20 | 0 | 5 |
+| PDF | 14 | 14 | 14 |
+| **Total** | **34** | **14** | **19** |
+
+Observations:
+
+- All 14 PDFs with parsed page content were processed using `extract_v1`.
+- No extraction failures remained for those 14 PDFs.
+- Five Central Tax Rate Notification entries had no parsed page content.
+- Those five entries were processed during the initial run before the pending-document selection was corrected.
+- The five empty entries are not counted among the 14 successfully extracted parsed PDFs.
+
+### Live API filter verification
+
+Tested the document endpoint using the development server.
+
+**Language filter**
+
+URL:
+
+```text
+http://localhost:8000/v1/documents?language=en&limit=3
+```
+
+Result:
+
+- Total matching documents: 14.
+- Three matching documents were returned.
+- The `language=en` filter worked.
+
+**Document kind filter**
+
+URL:
+
+```text
+http://localhost:8000/v1/documents?doc_kind=notice&limit=3
+```
+
+Result:
+
+- Total matching documents: 19.
+- Three matching documents were returned.
+- The `doc_kind=notice` filter worked.
+- The count includes the five empty notification entries that had earlier received extraction metadata.
+
+**Year filter**
+
+URL:
+
+```text
+http://localhost:8000/v1/documents?year=2025&limit=3
+```
+
+Result:
+
+- Total matching documents: 10.
+- Three matching documents were returned.
+- The `year=2025` filter worked.
+
+**URL tracking parameter observation**
+
+- Opening a ChatGPT-generated link added `utm_source=chatgpt.com` to the request.
+- The API treated this as an additional metadata filter, resulting in zero matches.
+- Typing the URL manually without the tracking parameter returned the expected results.
+- No code change was required for this issue.
+
+### Manual verification status
+
+The D09 instructions require checking at least five extracted records against their original documents by hand.
+
+- Manual source verification of five extracted records: Not yet confirmed.
+- Do not mark this requirement complete until five records have been checked against their original PDFs.
+
+### One thing that went wrong today, and how I fixed it
+
+- The extraction pending-document query initially selected documents based only on `doc_type`.
+- This included notification entries that had no parsed page content.
+- Those empty entries were incorrectly sent for extraction and received a summary stating that no content was available.
+- Inspected the database and confirmed that the 20 notification entries had zero documents with page content.
+- Updated the pending-document selection in `extract.py` to require at least one non-empty page of text.
+- Re-ran the tests successfully.
+- The corrected extraction run processed the 14 actual PDFs with content and left the empty notification entries out of subsequent extraction runs.
