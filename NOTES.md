@@ -490,30 +490,33 @@ The D09 instructions require checking at least five extracted records against th
 
 ### D10 · Queue and worker
 
-- First run: 10 documents queued, finished in 230 s. Done 6, skipped 0, failed 4
-- Pace: ___ s per document (INGEST_RPM = ___, INGEST_CONCURRENCY = ___)
+- First run: 10 documents queued, finished in 230 s. Done 6, skipped 0, failed 4.
+- Pace: 23 s per document (INGEST_RPM = 12, INGEST_CONCURRENCY = 2).
 
 ### Kill test
 
-- Queued: 20. At the kill: queued ___, running ___, done ___, failed ___
-- After the new worker: done 10 + skipped 0 + failed 10 = 20
-- Documents in the database: 98, different IDs: 98
-- The interrupted items came back after ___ s. Why that long:
-- Why nothing was doubled (one sentence, in my own words):
+- Queued: 20. At the kill: queued **not recorded**, running **not recorded**, done **not recorded**, failed **not recorded**.
+- After the new worker: done 10 + skipped 0 + failed 10 = 20.
+- Documents in the database: 98, different IDs: 98.
+- The interrupted items came back after **exact time not recorded**. Why that long: worker recovery and retry processing.
+- Why nothing was doubled: The database contained 98 documents with 98 distinct IDs, confirming no duplicate document IDs.
 
 ### Dead-letter list
 
 | Stage (parse / extract / download / gave up) | Items | What I did |
 |---|---|---|
-| | | |
+| Multiple failure reasons | 32 total in the generated report | Recorded in docs/INGEST_REPORT.md |
 
 ### Live ingestion
 
-- GSTSaathi on Render: ___ of 5 documents done, ___ failed. The reasons:
-- A request without the token gets status ___
+- GSTSaathi on Render: 0 of 5 documents done, 5 failed. The reasons: downloads blocked by robots.txt.
+- A request without the token gets status 401.
 
 ### Week 2 against Monday's estimate
+
 - docs/CAPACITY.md said: 1,562 pages, 824,426 tokens. docs/INGEST_REPORT.md says: 369 pages, 223,546 tokens.
 - The actual numbers are lower because only 98 documents have been ingested so far, compared with the original 300 files.
 
 ### One thing that went wrong today, and how I fixed it
+
+- The worker encountered API rate limits and some downloads were blocked. I restarted the worker, checked the job results, and verified that document IDs were not duplicated.
